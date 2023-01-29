@@ -1,0 +1,16 @@
+<p>
+  <mat-toolbar color="primary">
+    <span>ThesisColab</span>
+  </mat-toolbar>
+</p>
+<p>
+  Random text here.
+</p>
+
+<div *ngIf="userRole == 'student'">
+  <p>You are a student</p>
+</div>
+
+<div *ngIf="userRole == 'teacher'">
+  <p>You are a teacher</p>
+</div>
