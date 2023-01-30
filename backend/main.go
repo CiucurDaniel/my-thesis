@@ -33,7 +33,10 @@ func main() {
 	// Private routes
 	r.Group(func(r chi.Router) {
 		r.Route("/user", func(r chi.Router) {
-			r.Get("/{studentId}",)
+			
+		})
+		r.Route("/project", func(r chi.Router) {
+
 		})
 	})
 
