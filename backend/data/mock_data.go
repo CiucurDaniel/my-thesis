@@ -1,40 +1,47 @@
 package data
 
-import uuid "github.com/satori/go.uuid"
+import (
+	"fmt"
+	uuid "github.com/satori/go.uuid"
+)
 
 var InMemUserDb = []User{
-	{id: uuid.NewV4(), email: "daniel.ciucur@gmail.com", password: "1234", role: "student"},
-	{id: uuid.NewV4(), email: "mihai.andrei@gmail.com", password: "1234", role: "student"},
+	{Id: uuid.NewV4(), Email: "daniel.ciucur@gmail.com", Password: "1234", Role: "Student"},
+	{Id: uuid.NewV4(), Email: "mihai.andrei@gmail.com", Password: "1234", Role: "Student"},
 
-	{id: uuid.NewV4(), email: "ionut.ionescu@gmail.com", password: "1234", role: "teacher"},
-	{id: uuid.NewV4(), email: "mike.jimmy@gmail.com", password: "1234", role: "teacher"},
+	{Id: uuid.NewV4(), Email: "ionut.ionescu@gmail.com", Password: "1234", Role: "Teacher"},
+	{Id: uuid.NewV4(), Email: "mike.jimmy@gmail.com", Password: "1234", Role: "Teacher"},
 
-	{id: uuid.NewV4(), email: "diego.john@gmail.com", password: "1234", role: "teacher"},
+	{Id: uuid.NewV4(), Email: "diego.john@gmail.com", Password: "1234", Role: "Teacher"},
 }
 
 var InMemProjectDb = []Project{
 	{
-		id: uuid.NewV4(),
-		name:        "Java Spring web application",
-		student:     &InMemUserDb[0],
-		teacher:     &InMemUserDb[2],
-		description: "This is the project description",
-		tags:        []string{"programming", "spring framework", "java"},
+		Id:          uuid.NewV4(),
+		Name:        "Java Spring web application",
+		Student:     &InMemUserDb[0],
+		Teacher:     &InMemUserDb[2],
+		Description: "This is the project Description",
+		Tags:        []string{"programming", "spring framework", "java"},
 	},
 	{
-		id: uuid.NewV4(),
-		name:        "Kubernetes hands-on",
-		student:     &InMemUserDb[1],
-		teacher:     &InMemUserDb[3],
-		description: "This project aims to study the use of Kubernetes.",
-		tags:        []string{"kubernetes", "docker", "cloud"},
+		Id:          uuid.NewV4(),
+		Name:        "Kubernetes hands-on",
+		Student:     &InMemUserDb[1],
+		Teacher:     &InMemUserDb[3],
+		Description: "This project aims to study the use of Kubernetes.",
+		Tags:        []string{"kubernetes", "docker", "cloud"},
 	},
 	{
-		id: uuid.NewV4(),
-		name:        "Algorithms benchmark 1",
-		student:     nil,
-		teacher:     &InMemUserDb[4],
-		description: "This is the project description",
-		tags:        []string{"programming", "algorithms", "python"},
+		Id:          uuid.NewV4(),
+		Name:        "Algorithms benchmark 1",
+		Student:     nil,
+		Teacher:     &InMemUserDb[4],
+		Description: "This is the project Description",
+		Tags:        []string{"programming", "algorithms", "python"},
 	},
+}
+
+func init() {
+	fmt.Printf("Project uuid %s\n", InMemProjectDb[0].Id)
 }

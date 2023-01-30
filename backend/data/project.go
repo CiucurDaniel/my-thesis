@@ -6,12 +6,12 @@ import (
 )
 
 type Project struct {
-	id          uuid.UUID
-	name        string
-	teacher     *User
-	student     *User
-	description string
-	tags        []string
+	Id          uuid.UUID
+	Name        string
+	Teacher     *User
+	Student     *User
+	Description string
+	Tags        []string
 }
 
 var ErrEntryNotFound = errors.New("entry was not found")
@@ -21,7 +21,7 @@ func GetAllProjects() []Project {
 }
 
 func IsUnassigned(p Project) bool {
-	return p.student == nil
+	return p.Student == nil
 }
 
 func GetUnassignedProject() []Project {
@@ -41,7 +41,7 @@ func GetUnassignedProject() []Project {
 // otherwise an error will be thrown
 func GetProjectById(is uuid.UUID) (Project, error) {
 	for _, project := range InMemProjectDb {
-		if project.id == is {
+		if project.Id == is {
 			return project, nil
 		}
 	}
