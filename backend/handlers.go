@@ -16,7 +16,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	defer r.Body.Close()
 
-	// annonymous struct
+	// anonymous struct
 	usr := struct {
 		Email    string
 		Password string
