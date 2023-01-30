@@ -15,6 +15,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { StudentComponent } from './student/student.component';
 import { TeacherComponent } from './teacher/teacher.component';
+import { ProjectAssignedComponent } from './student/project-assigned/project-assigned.component';
+import { ProjectMissingComponent } from './student/project-missing/project-missing.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TeacherComponent } from './teacher/teacher.component';
     HomeComponent,
     LoginComponent,
     StudentComponent,
-    TeacherComponent
+    TeacherComponent,
+    ProjectAssignedComponent,
+    ProjectMissingComponent
   ],
   imports: [
     BrowserModule,

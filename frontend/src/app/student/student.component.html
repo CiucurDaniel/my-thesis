@@ -1,6 +1,12 @@
 <main>
   <p>This is student home view.</p>
 
+  <div *ngIf="hasAssignedProject">
+    <app-project-assigned></app-project-assigned>
+  </div>
 
+  <div *ngIf="!hasAssignedProject">
+    <app-project-missing></app-project-missing>
+  </div>
 </main>
 

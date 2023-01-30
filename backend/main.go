@@ -32,7 +32,9 @@ func main() {
 
 	// Private routes
 	r.Group(func(r chi.Router) {
-
+		r.Route("/user", func(r chi.Router) {
+			r.Get("/{studentId}",)
+		})
 	})
 
 	log.Fatal(http.ListenAndServe(":4044", r))
