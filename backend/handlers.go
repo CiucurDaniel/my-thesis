@@ -78,3 +78,30 @@ func getProjectById(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 }
+
+func getUserById(w http.ResponseWriter, r *http.Request) {
+	userId := chi.URLParam(r, "userId")
+	fmt.Printf("Got project id: %s\n", userId)
+
+	formattedUserId, err := uuid.FromString(userId)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	fmt.Printf("Got this strange %v", formattedUserId)
+
+	user, err := data.GetProjectById(formattedUserId)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Printf("%+v\n", user)
+
+	err = json.NewEncoder(w).Encode(user)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
