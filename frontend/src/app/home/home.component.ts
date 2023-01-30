@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.authenticationService.getRole();
-    // this won't work
+    // this won't work, because this is called after the components have
+    // already been initialized
   }
 
 }
