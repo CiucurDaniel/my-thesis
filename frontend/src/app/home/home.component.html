@@ -1,7 +1,20 @@
-<div *ngIf="userRole == 'student'">
-  <app-student></app-student>
-</div>
+<mat-toolbar color="primary">
 
-<div *ngIf="userRole == 'teacher'">
-  <app-teacher></app-teacher>
-</div>
+  <span>ThesisColab</span>
+  <span class="flexExpand"></span>
+
+  <div *ngIf="isLoggedIn">
+    <button mat-button (click)="onSubmit()"> Logout </button>
+  </div>
+
+</mat-toolbar>
+
+<main>
+  <div *ngIf="userRole == 'student'">
+    <app-student></app-student>
+  </div>
+
+  <div *ngIf="userRole == 'teacher'">
+    <app-teacher></app-teacher>
+  </div>
+</main>
