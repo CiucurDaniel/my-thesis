@@ -3,6 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/CiucurDaniel/my-thesis/backend/data"
+	"github.com/go-chi/chi/v5"
+	uuid "github.com/satori/go.uuid"
 	"log"
 	"net/http"
 )
@@ -47,4 +50,31 @@ func register(w http.ResponseWriter, r *http.Request) {
 	// append
 
 	// return response
+}
+
+func getProjectById(w http.ResponseWriter, r *http.Request) {
+	projectId := chi.URLParam(r, "projectId")
+	fmt.Printf("Got project id: %s\n", projectId)
+
+	formattedProjectId, err := uuid.FromString(projectId)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	fmt.Printf("Got this strange %v", formattedProjectId)
+
+	project, err := data.GetProjectById(formattedProjectId)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Printf("%+v\n", project)
+
+	err = json.NewEncoder(w).Encode(project)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
