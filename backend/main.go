@@ -37,6 +37,7 @@ func main() {
 		})
 		r.Route("/project", func(r chi.Router) {
 			r.Get("/{projectId}", getProjectById)
+			r.Post("/", postProject)
 		})
 	})
 

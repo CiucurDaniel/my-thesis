@@ -105,3 +105,7 @@ func getUserById(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 }
+
+func postProject(w http.ResponseWriter, r *http.Request) {
+	// receive project, generate Uuid, append to list of projects
+}
