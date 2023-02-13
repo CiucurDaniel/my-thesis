@@ -13,12 +13,16 @@ import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 import { StudentComponent } from './user/student/student.component';
 import { TeacherComponent } from './user/teacher/teacher.component';
 import { ProjectAssignedComponent } from './user/student/project-assigned/project-assigned.component';
 import { ProjectMissingComponent } from './user/student/project-missing/project-missing.component';
 import { ProjectListComponent } from './shared/project/project-list/project-list.component';
 import { ProjectCreateComponent } from './shared/project/project-create/project-create.component';
+
 
 @NgModule({
   declarations: [
@@ -43,8 +47,14 @@ import { ProjectCreateComponent } from './shared/project/project-create/project-
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatExpansionModule
   ],
+
+  // this is for services
+  //providers: [ProjectService],
+  // either add services here or with @Injectable({}) on
   providers: [],
   bootstrap: [AppComponent]
 })
