@@ -18,6 +18,7 @@ import { TeacherComponent } from './user/teacher/teacher.component';
 import { ProjectAssignedComponent } from './user/student/project-assigned/project-assigned.component';
 import { ProjectMissingComponent } from './user/student/project-missing/project-missing.component';
 import { ProjectListComponent } from './shared/project/project-list/project-list.component';
+import { ProjectCreateComponent } from './shared/project/project-create/project-create.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProjectListComponent } from './shared/project/project-list/project-list
     TeacherComponent,
     ProjectAssignedComponent,
     ProjectMissingComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    ProjectCreateComponent
   ],
   imports: [
     BrowserModule,
