@@ -13,10 +13,11 @@ import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import { StudentComponent } from './student/student.component';
-import { TeacherComponent } from './teacher/teacher.component';
-import { ProjectAssignedComponent } from './student/project-assigned/project-assigned.component';
-import { ProjectMissingComponent } from './student/project-missing/project-missing.component';
+import { StudentComponent } from './user/student/student.component';
+import { TeacherComponent } from './user/teacher/teacher.component';
+import { ProjectAssignedComponent } from './user/student/project-assigned/project-assigned.component';
+import { ProjectMissingComponent } from './user/student/project-missing/project-missing.component';
+import { ProjectListComponent } from './shared/project/project-list/project-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectMissingComponent } from './student/project-missing/project-missi
     StudentComponent,
     TeacherComponent,
     ProjectAssignedComponent,
-    ProjectMissingComponent
+    ProjectMissingComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,
