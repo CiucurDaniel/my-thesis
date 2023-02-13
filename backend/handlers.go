@@ -10,9 +10,62 @@ import (
 	"net/http"
 )
 
+// Health endpoint
+
 func health(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Backend is healthy."))
 }
+
+// Project handlers
+
+func getProjectById(w http.ResponseWriter, r *http.Request) {
+	projectId := chi.URLParam(r, "projectId")
+	fmt.Printf("Got project id: %s\n", projectId)
+
+	formattedProjectId, err := uuid.FromString(projectId)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	fmt.Printf("Got this strange %v", formattedProjectId)
+
+	project, err := data.GetProjectById(formattedProjectId)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Printf("%+v\n", project)
+
+	err = json.NewEncoder(w).Encode(project)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func getProjects(w http.ResponseWriter, r *http.Request) {
+
+	log.Println("Reached getProjects handler")
+
+	projects := data.GetAllProjects()
+
+	w.Header().Set("Content-Type", "application/json")
+
+	err := json.NewEncoder(w).Encode(projects)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Printf("Got error encoding projects as json. Error: %s", err.Error())
+	}
+}
+
+func postProject(w http.ResponseWriter, r *http.Request) {
+	// receive project, generate Uuid, append to list of projects
+}
+
+
+// User handlers
 
 func login(w http.ResponseWriter, r *http.Request) {
 
@@ -52,49 +105,6 @@ func register(w http.ResponseWriter, r *http.Request) {
 	// return response
 }
 
-func getProjectById(w http.ResponseWriter, r *http.Request) {
-	projectId := chi.URLParam(r, "projectId")
-	fmt.Printf("Got project id: %s\n", projectId)
-
-	formattedProjectId, err := uuid.FromString(projectId)
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-
-	fmt.Printf("Got this strange %v", formattedProjectId)
-
-	project, err := data.GetProjectById(formattedProjectId)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	fmt.Printf("%+v\n", project)
-
-	err = json.NewEncoder(w).Encode(project)
-	if err != nil {
-		log.Fatal(err)
-	}
-}
-
-func getProjects(w http.ResponseWriter, r *http.Request) {
-
-	log.Println("Reached getProjects handler")
-	
-	projects := data.GetAllProjects()
-
-	w.Header().Set("Content-Type", "application/json")
-
-	err := json.NewEncoder(w).Encode(projects)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Printf("Got error encoding projects as json. Error: %s", err.Error())
-	}
-}
-
-
 func getUserById(w http.ResponseWriter, r *http.Request) {
 	userId := chi.URLParam(r, "userId")
 	fmt.Printf("Got project id: %s\n", userId)
@@ -120,8 +130,4 @@ func getUserById(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-}
-
-func postProject(w http.ResponseWriter, r *http.Request) {
-	// receive project, generate Uuid, append to list of projects
 }
