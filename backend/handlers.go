@@ -79,6 +79,22 @@ func getProjectById(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func getProjects(w http.ResponseWriter, r *http.Request) {
+
+	log.Println("Reached getProjects handler")
+	
+	projects := data.GetAllProjects()
+
+	w.Header().Set("Content-Type", "application/json")
+
+	err := json.NewEncoder(w).Encode(projects)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Printf("Got error encoding projects as json. Error: %s", err.Error())
+	}
+}
+
+
 func getUserById(w http.ResponseWriter, r *http.Request) {
 	userId := chi.URLParam(r, "userId")
 	fmt.Printf("Got project id: %s\n", userId)
