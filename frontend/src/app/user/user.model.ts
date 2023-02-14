@@ -1,6 +1,6 @@
 export interface UserModel {
-  id: string;
-  email: string;
-  password: string;
-  role: string; // Student, Teacher, admin
+  Id: string;
+  Email: string;
+  Password: string;
+  Role: string; // Student, Teacher, admin
 }
