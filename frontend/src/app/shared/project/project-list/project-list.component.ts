@@ -24,6 +24,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       .subscribe( (posts: ProjectModel[]) => {
         this.isLoading = false;
         this.projects = posts;
+        console.log(this.projects); //DEBUG
       });
   }
 

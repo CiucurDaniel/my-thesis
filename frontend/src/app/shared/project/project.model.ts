@@ -1,10 +1,10 @@
 import {UserModel} from "../../user/user.model";
 
 export interface ProjectModel {
-  id: string;
-  name: string;
+  Id: string;
+  Name: string;
   // teacher: UserModel;
   // student: UserModel;
-  description: string;
-  tags: string[];
+  Description: string;
+  Tags: string[];
 }

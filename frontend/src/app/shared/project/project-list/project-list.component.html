@@ -2,11 +2,11 @@
 <mat-accordion multi="true" *ngIf="projects.length > 0 && !isLoading">
   <mat-expansion-panel *ngFor="let project of projects">
     <mat-expansion-panel-header>
-      {{project.name}}
+      {{project.Name}}
     </mat-expansion-panel-header>
-    <p>{{project.description}}</p>
+    <p>{{project.Description}}</p>
     <mat-action-row>
-      <button mat-button color="accent" (click)="onDetails(project.id)">Details</button>
+      <button mat-button color="accent" (click)="onDetails(project.Id)">Details</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
