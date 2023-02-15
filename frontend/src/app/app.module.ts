@@ -26,6 +26,8 @@ import { ProjectAssignedComponent } from './user/student/project-assigned/projec
 import { ProjectMissingComponent } from './user/student/project-missing/project-missing.component';
 import { ProjectListComponent } from './shared/project/project-list/project-list.component';
 import { ProjectCreateComponent } from './shared/project/project-create/project-create.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { ProjectCreateComponent } from './shared/project/project-create/project-
     ProjectAssignedComponent,
     ProjectMissingComponent,
     ProjectListComponent,
-    ProjectCreateComponent
+    ProjectCreateComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
