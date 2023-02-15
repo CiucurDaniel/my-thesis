@@ -9,7 +9,6 @@ import {AuthenticationService} from "../_services/auth.service";
 export class HomeComponent implements OnInit {
 
   userRole: string | null = this.authenticationService.getRole();
-  isLoggedIn: boolean | null = this.authenticationService.isLoggedIn();
   constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
@@ -18,7 +17,4 @@ export class HomeComponent implements OnInit {
     // already been initialized
   }
 
-  public onSubmit() {
-    this.authenticationService.logout();
-  }
 }

@@ -1,1 +1,16 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+
+  <span>ThesisColab</span>
+  <span class="flexExpand"></span>
+
+  <div *ngIf="isLoggedIn">
+    <button mat-button (click)="onSubmit()"> Logout </button>
+  </div>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+
+<!-- Currently header is also a footer as well -->
+

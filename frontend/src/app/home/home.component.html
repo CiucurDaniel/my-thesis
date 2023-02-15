@@ -1,14 +1,3 @@
-<mat-toolbar color="primary">
-
-  <span>ThesisColab</span>
-  <span class="flexExpand"></span>
-
-  <div *ngIf="isLoggedIn">
-    <button mat-button (click)="onSubmit()"> Logout </button>
-  </div>
-
-</mat-toolbar>
-
 <main>
   <div *ngIf="userRole == 'student'">
     <app-student></app-student>
