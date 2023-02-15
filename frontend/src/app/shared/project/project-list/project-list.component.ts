@@ -12,6 +12,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   projects: ProjectModel[] = [];
   isLoading = false;
+
+  displayedColumns: string[] = ['Project Name', 'Description', 'Teacher', 'Tags', 'Status'];
   // @ts-ignore
   private projectSubscription: Subscription;
   constructor(public projectService: ProjectService) { }

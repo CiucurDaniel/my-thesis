@@ -1,13 +1,62 @@
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-accordion multi="true" *ngIf="projects.length > 0 && !isLoading">
-  <mat-expansion-panel *ngFor="let project of projects">
-    <mat-expansion-panel-header>
-      {{project.Name}}
-    </mat-expansion-panel-header>
-    <p>{{project.Description}}</p>
-    <mat-action-row>
-      <button mat-button color="accent" (click)="onDetails(project.Id)">Details</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion>
-<p class="info-text mat-body-1"  *ngIf="projects.length <= 0 && !isLoading">No projects added yet.</p>
+
+
+<div class="borderize">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+  <table mat-table class="lessons-table mat-elevation-z8" [dataSource]="projects">
+
+    <ng-container matColumnDef="Project Name">
+      <th *matHeaderCellDef>Project Name</th>
+      <td *matCellDef="let project">{{project.Name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Description">
+      <th *matHeaderCellDef>Description</th>
+      <td *matCellDef="let project">{{project.Description}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Teacher">
+      <th *matHeaderCellDef>Teacher</th>
+      <td *matCellDef="let project">{{project.Teacher.Email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Tags">
+      <th *matHeaderCellDef>Tags</th>
+      <td *matCellDef="let project">
+        <mat-chip-list>
+          <mat-chip *ngFor="let tag of project.Tags">{{tag}}</mat-chip>
+        </mat-chip-list>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <th *matHeaderCellDef>Status</th>
+      <td *matCellDef="let project">
+
+         <!-- https://stackoverflow.com/questions/52553413/my-ngif-else-is-not-working-as-expected-in-angular-6 -->
+
+        <div *ngIf="project.Student == null; then thenBlock else elseBlock"></div>
+
+        <!-- If project student == null a button to apply is given here -->
+        <ng-template #thenBlock>
+          <button mat-raised-button color="primary">Apply for project</button>
+        </ng-template>
+
+        <!-- If project student == "someone" a button status is simply set to Taken here -->
+        <ng-template #elseBlock>
+          <p><b>This project is already taken</b></p>
+        </ng-template>
+      </td>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    <mat-paginator [length]="projects.length" [pageSize]="10" aria-label="Select page of projects search results"></mat-paginator>
+  </table>
+
+  <p class="info-text mat-body-1"  *ngIf="projects.length <= 0 && !isLoading">No projects added yet.</p>
+
+</div>
+

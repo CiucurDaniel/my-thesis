@@ -18,18 +18,20 @@ export class ProjectService {
   getProjects() {
     this.http.get<ProjectModel[]>(environment.apiUrl + "/project/")
       .pipe(
-        map( (projectData)=> {
+        map((projectData) => {
           return projectData.map(project => {
             return {
               // Field din Interfata Angular: Field din JSON trimis de backend
-             Id: project.Id,
-             Name: project.Name,
-             Description: project.Description,
+              Id: project.Id,
+              Name: project.Name,
+              Description: project.Description,
+              Teacher: project.Teacher,
+              Student: project.Student,
               Tags: project.Tags,
             };
           });
         }))
-      .subscribe( transformedProjects => {
+      .subscribe(transformedProjects => {
         this.projects = transformedProjects;
         this.projectsUpdated.next([...this.projects]);
       });

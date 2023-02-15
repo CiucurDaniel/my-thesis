@@ -15,6 +15,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSortModule } from "@angular/material/sort";
+import { MatTableModule } from "@angular/material/table";
+import {MatChipsModule} from '@angular/material/chips';
 
 import { StudentComponent } from './user/student/student.component';
 import { TeacherComponent } from './user/teacher/teacher.component';
@@ -49,7 +53,12 @@ import { ProjectCreateComponent } from './shared/project/project-create/project-
     MatInputModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatChipsModule
   ],
 
   // this is for services
