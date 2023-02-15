@@ -38,4 +38,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     // TODO: Implement me
     //this.postService.detailsPost(postId);
   }
+
+  assignProjectToStudent(studentId: string){
+    // TODO: This should actually take the ID from the localStorage
+  }
 }
