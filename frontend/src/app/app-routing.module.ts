@@ -5,12 +5,14 @@ import {HomeComponent} from './home/home.component';
 import {AuthGuard} from './_helpers/auth.guard';
 import {ProjectListComponent} from "./shared/project/project-list/project-list.component";
 import {HeaderComponent} from "./layout/header/header.component";
+import {ProjectCreateComponent} from "./shared/project/project-create/project-create.component";
 
 const routes: Routes = [
   {
     path: '', component: HeaderComponent, canActivate: [AuthGuard], children: [
       {path: '', component: HomeComponent},
-      {path: 'projects', component: ProjectListComponent}
+      {path: 'projects', component: ProjectListComponent},
+      {path: 'create_project', component: ProjectCreateComponent},
     ]
   },
   {path: 'login', component: LoginComponent},
