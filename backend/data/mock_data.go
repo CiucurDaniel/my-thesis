@@ -40,6 +40,22 @@ var InMemProjectDb = []Project{
 		Description: "This is the project Description",
 		Tags:        []string{"programming", "algorithms", "python"},
 	},
+	{
+		Id:          uuid.NewV4(),
+		Name:        "Python OOP vs Java OOP",
+		Student:     nil,
+		Teacher:     &InMemUserDb[4],
+		Description: "Compare OOP aspect between Python and Java",
+		Tags:        []string{"OOP", "java", "python"},
+	},
+	{
+		Id:          uuid.NewV4(),
+		Name:        "JavaScript React application",
+		Student:     nil,
+		Teacher:     &InMemUserDb[4],
+		Description: "Create a JavaScript delivery application using React",
+		Tags:        []string{"google maps", "react", "js"},
+	},
 }
 
 func init() {
