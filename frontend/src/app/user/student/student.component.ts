@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentComponent implements OnInit {
 
-  hasAssignedProject: boolean = false;
+  hasAssignedProject: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
@@ -15,5 +15,7 @@ export class StudentComponent implements OnInit {
 
   // todo: call service to check if project is assigned
   // or use jwt information
+
+  // TODO: For now create 3 users and for each hard code a value.
 
 }
