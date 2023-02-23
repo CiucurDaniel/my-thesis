@@ -1,3 +1,52 @@
 <main>
-  <p>project-create works!</p>
+  <p>Write the details of your project bellow: </p>
+
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <!-- LEFT AREA WITH FORM -->
+    <mat-grid-tile class="my-grid-tile">
+
+      <mat-card>
+
+        <mat-card-header>
+          <mat-card-title>New Project</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+
+          <form [formGroup]="projectCreateForm">
+            <mat-form-field appearance="outline">
+              <mat-label>Project name</mat-label>
+              <input matInput formControlName="name"/>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Tags</mat-label>
+              <input matInput formControlName="tags"/>
+              <mat-hint>Choose up to 3 tags</mat-hint>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="onSubmit()">
+            Create
+          </button>
+        </mat-card-actions>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- RIGHT AREA WITH IMAGE -->
+    <mat-grid-tile>
+
+      <img src="assets/img/project_details.jpg" width="500px">
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
 </main>

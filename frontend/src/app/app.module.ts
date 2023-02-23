@@ -5,20 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from "@angular/material/button";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatCardModule} from "@angular/material/card";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule} from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
-import {MatChipsModule} from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSidenavModule} from "@angular/material/sidenav";
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { StudentComponent } from './user/student/student.component';
 import { TeacherComponent } from './user/teacher/teacher.component';
@@ -28,7 +32,8 @@ import { ProjectListComponent } from './shared/project/project-list/project-list
 import { ProjectCreateComponent } from './shared/project/project-create/project-create.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
-import {MatSidenavModule} from "@angular/material/sidenav";
+import { ProjectDetailsComponent } from './shared/project/project-details/project-details.component';
+
 
 
 @NgModule({
@@ -43,7 +48,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     ProjectListComponent,
     ProjectCreateComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,11 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatPaginatorModule,
     MatSortModule,
     MatChipsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule,
+    MatGridListModule,
+    MatChipsModule,
+    MatProgressBarModule
   ],
 
   // this is for services

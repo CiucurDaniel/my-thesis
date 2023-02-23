@@ -13,4 +13,7 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // todo: call service to check if project is assigned
+  // or use jwt information
+
 }

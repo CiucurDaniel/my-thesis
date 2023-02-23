@@ -6,3 +6,10 @@
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+.custom-buttons {
+  min-width: 300px;
+  display:block;
+  margin: 30px;
+  padding: 7px 35px;
+}

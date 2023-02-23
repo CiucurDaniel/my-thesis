@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+
+export interface TagChip {
+  name: string;
+}
 
 @Component({
   selector: 'app-project-create',
@@ -7,9 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectCreateComponent implements OnInit {
 
-  constructor() { }
+  public projectCreateForm!: FormGroup;
 
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    this.projectCreateForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      tags: new FormControl('', Validators.required)
+    });
+  }
+
+  public onSubmit() {
+    // this.authenticationService.login(
+    //   this.loginForm.get('email')!.value,
+    //   this.loginForm!.get('password')!.value
+    // );
+  }
 }

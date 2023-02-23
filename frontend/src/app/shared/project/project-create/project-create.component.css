@@ -1,0 +1,19 @@
+/*.form_area {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: flex-start;*/
+/*}*/
+
+mat-card {
+  text-align: center;
+}
+
+mat-form-field {
+  display: block;  /* is 100% width unless specified otherwise */
+}
+
+.my-grid-tile {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+
+}
